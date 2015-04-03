@@ -10,6 +10,7 @@ import android.os.Bundle;
 import com.zz.assassinzkit.R;
 import com.zz.kit.receiver.MyReceiver;
 import com.zz.kit.utils.L;
+import com.zz.kit.utils.Logger;
 import com.zz.kit.widget.SpringProgressView;
 
 public class TestActivity extends Activity {
@@ -34,6 +35,10 @@ public class TestActivity extends Activity {
 
                 L.setUserName("!!!!!!!");
                 L.out("test");
+
+                Logger.init("ZZZZZZZZZ").setMethodCount(1);
+                Logger.i("test");
+
                 dialog.dismiss();
 
             }
