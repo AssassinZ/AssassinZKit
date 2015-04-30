@@ -6,9 +6,11 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import com.zz.assassinzkit.R;
 import com.zz.kit.receiver.MyReceiver;
+import com.zz.kit.utils.AVGHelper;
 import com.zz.kit.utils.L;
 import com.zz.kit.utils.Logger;
 import com.zz.kit.widget.SpringProgressView;
@@ -17,6 +19,8 @@ public class TestActivity extends Activity {
 
     AlertDialog mDialog;
     MyReceiver receiver;
+    TextView mTextView;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -27,6 +31,11 @@ public class TestActivity extends Activity {
         progressView = (SpringProgressView) findViewById(R.id.spring_progress_view);
         progressView.setMaxCount(1000.0f);
         progressView.setCurrentCount(888);
+
+        mTextView = (TextView) findViewById(R.id.my_text_view);
+        mTextView.setText("1中文测试中asdsad文测中文测中文测asdas中文测中文测");
+        AVGHelper.autoTyper(this, mTextView, 10, 500);
+
 
         mDialog = new AlertDialog.Builder(this).setTitle("提示").setMessage("测试").setPositiveButton("确定", new OnClickListener() {
 
